@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <script>
+      function myFunction(value) {
+        document.getElementById("output").innerHTML += value;
+      }
+    </script>
+    <h3>Input:</h3>
+    <input type="text" name="inputText" onchange="myFunction(this.value)"></input><br>
+    <br>
+    <h1 id="output">Browser</h1>
+  </body>
+</html>
