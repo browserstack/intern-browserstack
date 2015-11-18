@@ -1,0 +1,17 @@
+{
+  "name": "intern-browserstack-live-testing",
+  "version": "1.0.0",
+  "readme": "Live Intern tests on [BrowserStack](https://www.browserstack.com)",
+  "description": "An example module to run intern tests on browserstack",
+  "scripts": {
+    "test": "./node_modules/.bin/intern-runner config=tests/intern"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/browserstack/intern-browserstack"
+  },
+  "dependencies": {
+    "intern": "^3.0.6"
+  },
+  "license": "MIT"
+}
