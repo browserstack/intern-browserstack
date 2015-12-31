@@ -7,7 +7,7 @@ define([
   registerSuite({
     name: 'search',
 
-    'google search 1': function () {
+    'google search 2': function () {
       return this.remote
         .get(require.toUrl('https://www.google.com/ncr'))
         .findByName("q")

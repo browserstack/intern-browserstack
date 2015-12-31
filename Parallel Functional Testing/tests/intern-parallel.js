@@ -12,50 +12,48 @@ define([
       test = descriptor[k];
 
       switch (k) {
-      case 'name':
-      case 'timeout':
-      case 'setup':
-      case 'before':
-      case 'after':
-      case 'beforeEach':
-      case 'afterEach':
-      case 'teardown':
-        break;
+        case 'name':
+        case 'timeout':
+        case 'setup':
+        case 'before':
+        case 'after':
+        case 'beforeEach':
+        case 'afterEach':
+        case 'teardown':
+          break;
+        default:
+          // TODO
+          if (typeof test !== 'function') {
+            test.name = test.name || k;
+            //registerSuite(test, suite);
+          } else {
+            descriptor[k] = function(){
+              var runTest = function(remote, resolve){
+                var driver = test.apply({remote: remote});
+                if(driver) driver.quit();
+                resolve(remote);
+              }
+              var remote = this.remote;
 
-      default:
-        // TODO
-        if (typeof test !== 'function') {
-          test.name = test.name || k;
-          //registerSuite(test, suite);
-        }
-        else {
-          descriptor[k] = function(){
-            var runTest = function(remote, resolve){
-              var driver = test.apply({remote: remote});
-              if(driver) driver.quit();
-              resolve(remote);
-            }
-            var remote = this.remote;
+              return new Promise(function(resolve, reject){
+                if(remote.done || false){
+                  session = remote.session;
+                  for(var i in config.capabilities){
+                    session.capabilities[i] = config.capabilities[i];
+                  }
 
-            return new Promise(function(resolve, reject){
-              if(remote.done || false){
-                session = remote.session;
-                for(var i in config.capabilities){
-                  session.capabilities[i] = config.capabilities[i];  
+                  session.server.createSession(session.capabilities).then(function(newSession){
+                    var remote = new Command(newSession)
+                    runTest(remote, resolve);
+                  });
                 }
-
-                session.server.createSession(session.capabilities).then(function(newSession){
-                  var remote = new Command(newSession)
+                else {
+                  remote.done = true;
                   runTest(remote, resolve);
-                });
-              }
-              else {
-                remote.done = true;
-                runTest(remote, resolve);
-              }
-            })
+                }
+              })
+            }
           }
-        }
       }
     }
 
