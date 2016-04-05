@@ -28,3 +28,7 @@ Install the dependencies using -
 Then tests can be run via the command -
 
 `npm test`
+
+#### Note
+
+Live Testing example doesn't work with intern version 3.1.0 due to [this issue](https://github.com/theintern/intern/issues/600).
