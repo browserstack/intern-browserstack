@@ -28,3 +28,10 @@ Install the dependencies using -
 Then tests can be run via the command -
 
 `npm test`
+
+#### Note
+
+If you are getting the error `Cannot read property 'reduce' of undefined`, its an issue with the intern framework release 3.1.0.
+Check [this issue](https://github.com/theintern/intern/issues/600).
+
+As a workaround, try changing `"suites": null` to `"suites": []` in `test/intern.js`. But, intern will try to load `client.html` from localhost. So it requires `Local Testing`
