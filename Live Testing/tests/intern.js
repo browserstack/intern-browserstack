@@ -23,6 +23,8 @@ define({
   tunnel: 'BrowserStackTunnel',
 
   tunnelOptions: {
+    protocol: 'http',
+    port: '80',
     verbose: true,
     username: process.env.BROWSERSTACK_USERNAME,
     accessKey: process.env.BROWSERSTACK_KEY
