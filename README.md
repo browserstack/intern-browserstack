@@ -8,14 +8,13 @@
 ## Setup
 * Clone the repo
 * Install dependencies `npm install`
-* Update `*.conf.js` files inside the `conf/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
+* Update `intern.json` with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ## Running your tests
-* To run single test, run `npm run single`
-* To run local tests, run `npm run local`
-* To run parallel tests, run `npm run parallel`
+* To run sample test, run `npm run sample-test`
+* To run local tests, run `npm run local-test`
+* To run both tests, run `npm run test`
 
- Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
 ## Notes
 * You can view your test results on the [BrowserStack automate dashboard](https://www.browserstack.com/automate)
