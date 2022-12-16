@@ -1,18 +1,14 @@
-define([
-  'intern!object',
-  'intern/chai!assert',
-  'require'
-], function (registerSuite, assert, require, registry) {
-  registerSuite({
-    name: 'BrowserStack Local Testing',
+const { assert } = intern.getPlugin('chai');
+const { registerSuite } = intern.getPlugin('interface.object');
 
-    'can check tunnel working': function () {
-      return this.remote
-        .get(require.toUrl('http://localhost:9000'))
-        .getPageSource()
-        .then(function(title){
-          assert.match(title, /404 Not Found/i)
-        });
-    }
-  });
+registerSuite('BrowserStack Local Testing', {
+  async checkTunnelIsWorking() {
+    await this.remote.get("http://bs-local.com:45454/")
+      .end()
+      .sleep(5000)
+      .getPageTitle()
+      .then(function(title){
+        assert.strictEqual(title, 'BrowserStack Local')
+      });
+  }
 });
