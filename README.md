@@ -12,7 +12,7 @@
 
 ## Running your tests
 * To run sample test, run `npm run sample-test`
-* To run local tests, run `npm run local-test`
+* To run local tests, run `npm run sample-local-test`
 * To run both tests, run `npm run test`
 
 

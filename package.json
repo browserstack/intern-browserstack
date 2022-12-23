@@ -4,9 +4,9 @@
   "readme": "INtern Integration with [BrowserStack](https://www.browserstack.com)",
   "description": "Selenium examples for Intern and BrowserStack Automate",
   "scripts": {
-    "test": "npm run sample-test && npm run local-test",
+    "test": "npm run sample-test && npm run sample-local-test",
     "sample-test": "intern functionalSuites=tests/sample_test.js",
-    "local-test": "intern functionalSuites=tests/local_test.js"
+    "sample-local-test": "intern functionalSuites=tests/sample_local_test.js"
   },
   "repository": {
     "type": "git",

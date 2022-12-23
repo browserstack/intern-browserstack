@@ -3,13 +3,10 @@ const { registerSuite } = intern.getPlugin('interface.object');
 
 registerSuite('Testing with Bstackdemo', {
   async addProductToCart() {
-    await this.remote.get("https://bstackdemo.com/")
-      .end()
-      .sleep(5000)
-      .getPageTitle()
-      .then(function(title){
-        assert.strictEqual(title, 'StackDemo')
-      });
+    await this.remote.get("https://bstackdemo.com/");
+
+    const title = await this.remote.getPageTitle();
+    assert.include(title, 'StackDemo');
 
     const productOnScreen = await this.remote.findByXpath('//*[@id="1"]/p');
     const productOnScreenText = await productOnScreen.getVisibleText();
