@@ -1,6 +1,7 @@
 {
   "coverage": false,
   "tunnel": "browserstack",
+  "defaultTimeout": 90000,
 
   "tunnelOptions": {
     "verbose": true,
@@ -12,7 +13,7 @@
 
   "capabilities": {
     "build": "browserstack build",
-    "browserstack.source": "intern:sample-master:v1.0",
+    "browserstack.source": "intern:sample-v4:v1.0",
     "fixSessionCapabilities": false
   },
 

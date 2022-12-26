@@ -1,11 +1,11 @@
 const { assert } = intern.getPlugin('chai');
-const { registerSuite } = intern.getPlugin('interface.object');
+const { suite, test } = intern.getInterface('tdd');
 
-registerSuite('BrowserStack Local Testing', {
-  async checkTunnelIsWorking() {
-    await this.remote.get("http://bs-local.com:45454/")
+suite('BrowserStack Local Testing', () => {
+  test('can check tunnel working', async ({remote}) => {
+    await remote.get("http://bs-local.com:45454/")
     
-    const title = await this.remote.getPageTitle();
+    const title = await remote.getPageTitle();
     assert.include(title, 'BrowserStack Local');
-  }
+  });
 });
