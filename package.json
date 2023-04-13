@@ -5,9 +5,9 @@
   "description": "Selenium examples for Intern and BrowserStack Automate",
   "scripts": {
     "test": "npm run single && npm run local && npm run parallel",
-    "single": "./node_modules/.bin/intern-runner config=conf/single.conf.js",
-    "local": "./node_modules/.bin/intern-runner config=conf/local.conf.js",
-    "parallel": "./node_modules/.bin/intern-runner config=conf/parallel.conf.js"
+    "single": "npx intern-runner config=conf/single.conf.js",
+    "local": "npx intern-runner config=conf/local.conf.js",
+    "parallel": "npx intern-runner config=conf/parallel.conf.js"
   },
   "repository": {
     "type": "git",
