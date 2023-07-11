@@ -2,7 +2,7 @@ define({
   proxyPort: 9000,
 
   capabilities: {
-    name: 'parallel_test',
+    name: 'BStack parallel test',
     build: 'intern-browserstack',
     "browserstack.local": false,
     fixSessionCapabilities: false

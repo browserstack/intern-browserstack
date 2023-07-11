@@ -2,7 +2,7 @@ define({
   proxyPort: 9000,
 
   capabilities: {
-    name: 'single_test',
+    name: 'BStack single test',
     build: 'intern-browserstack',
     "browserstack.local": false,
     fixSessionCapabilities: false
